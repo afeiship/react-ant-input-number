@@ -86,6 +86,7 @@
     "react-dom": "^16.4.1"
   },
   "dependencies": {
+    "antd": "^3.7.0",
     "classnames": "^2.2.5",
     "mixin-decorator": "github:afeiship/mixin-decorator",
     "next-dom-event": "github:afeiship/next-dom-event",

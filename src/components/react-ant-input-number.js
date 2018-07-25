@@ -18,9 +18,9 @@ export default class extends Component{
   };
   /*===properties end===*/
 
-  _onChange = e => {
+  _onChange = inEvent => {
     const { onChange } = this.props;
-    onChange( returnEventTarget(e) );
+    onChange(returnEventTarget(inEvent) );
   };
 
   render(){
