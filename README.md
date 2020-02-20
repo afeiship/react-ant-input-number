@@ -1,67 +1,77 @@
 # react-ant-input-number
-> Input number for react
+> Input number for react.
 
-## properties:
-```javascript
-
-  static propTypes = {
-    className: PropTypes.string,
-    onChange: PropTypes.func,
-  };
-
-  static defaultProps = {
-    onChange: noop
-  };
-  
+## installation
+```shell
+npm install -S @feizheng/react-ant-input-number
 ```
 
-## install && import:
-```bash
-npm install --save afeiship/react-ant-input-number --registry=https://registry.npm.taobao.org
+## update
+```shell
+npm update @feizheng/react-ant-input-number
 ```
 
-```js
-import ReactAntInputNumber from 'react-ant-input-number';
-```
-
-```scss
-// customize your styles:
-$react-ant-input-number-options:(
-);
-
-@import 'node_modules/react-ant-input-number/dist/style.scss';
-```
+## properties
+| Name      | Type   | Default | Description                           |
+| --------- | ------ | ------- | ------------------------------------- |
+| className | string | -       | The extended className for component. |
+| onChange  | func   | noop    | The change handler.                   |
 
 
-## usage:
-```jsx
+## usage
+1. import css
+  ```scss
+  @import "~@feizheng/react-ant-input-number/dist/style.scss";
 
-// install: npm install afeiship/react-ant-input-number --save
-// import : import ReactAntInputNumber from 'react-ant-input-number'
+  // customize your styles:
+  $react-ant-input-number-options: ()
+  ```
+2. import js
+  ```js
+  import ReactAntInputNumber from '@feizheng/react-ant-input-number';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
+  import './assets/style.scss';
 
-class App extends React.Component{
-  state = {
+  class App extends React.Component {
+    handleChange = (e) => {
+      console.log(e.target.value);
+    };
 
-  };
-
-  constructor(props){
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.refs.rc;
+    render() {
+      return (
+        <div className="app-container">
+          <div className="item">
+            <ReactAntInputNumber onChange={this.handleChange} />
+          </div>
+          <div className="item">
+            <ReactAntInputNumber
+              defaultValue={100}
+              min={0}
+              max={100}
+              formatter={(value) => `${value}%`}
+              parser={(value) => value.replace('%', '')}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="item">
+            <ReactAntInputNumber
+              defaultValue={100}
+              min={0}
+              max={100}
+              formatter={(value) => `${value}%`}
+              parser={(value) => value.replace('%', '')}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+      );
+    }
   }
 
-  _onChange = e =>{
-    console.log(e.target.value)
-  };
+  ReactDOM.render(<App />, document.getElementById('app'));
 
-  render(){
-    return (
-      <div className="hello-react-ant-input-number">
-        <ReactAntInputNumber onChange={this._onChange} ref='rc' />
-      </div>
-    );
-  }
-}
+  ```
 
-```
+## documentation
+- https://afeiship.github.io/react-ant-input-number/
