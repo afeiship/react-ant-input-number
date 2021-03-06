@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import noop from '@feizheng/noop';
-import objectAssign from 'object-assign';
+import noop from '@jswork/noop';
 import { InputNumber } from 'antd';
 
 const CLASS_NAME = 'react-ant-input-number';
@@ -29,9 +27,7 @@ export default class ReactAntInputNumber extends Component {
   handleChange = (inEvent) => {
     const { onChange } = this.props;
     onChange({
-      target: {
-        value: inEvent
-      }
+      target: { value: inEvent }
     });
   };
 
